@@ -1,8 +1,5 @@
 package skypro.java.margolina.mysecondproject.repository;
 
-import skypro.java.margolina.mysecondproject.exceptions.EmptyAnswerException;
-import skypro.java.margolina.mysecondproject.exceptions.EmptyQuestionException;
-
 import java.util.Objects;
 
 public class Question {

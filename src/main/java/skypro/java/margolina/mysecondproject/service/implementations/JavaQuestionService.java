@@ -71,5 +71,4 @@ public class JavaQuestionService implements QuestionService {
             throw new EmptyAnswerException();
         }
     }
-
 }
