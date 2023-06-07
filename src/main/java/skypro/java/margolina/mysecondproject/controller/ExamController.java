@@ -3,7 +3,7 @@ package skypro.java.margolina.mysecondproject.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import skypro.java.margolina.mysecondproject.repository.Question;
+import skypro.java.margolina.mysecondproject.model.Question;
 import skypro.java.margolina.mysecondproject.service.ExaminerService;
 
 import java.util.Collection;

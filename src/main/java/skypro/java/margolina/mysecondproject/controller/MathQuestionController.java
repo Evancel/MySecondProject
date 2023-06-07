@@ -8,31 +8,36 @@ import skypro.java.margolina.mysecondproject.model.Question;
 import skypro.java.margolina.mysecondproject.service.QuestionService;
 
 import java.util.Collection;
-
 @RestController
-public class JavaQuestionController {
+
+public class MathQuestionController {
     private final QuestionService questionService;
 
-    public JavaQuestionController(@Qualifier ("javaQuestionService") QuestionService questionService){
+    public MathQuestionController(@Qualifier("mathQuestionService") QuestionService questionService){
         this.questionService = questionService;
     }
 
-    @GetMapping("/java/add")
+    @GetMapping("/math/add")
     public Question addQuestion(
-            @RequestParam (name ="question")  String question,
+            @RequestParam(name ="question")  String question,
             @RequestParam(name="answer") String answer){
         return questionService.add(question, answer);
     }
 
-    @GetMapping("/java")
+    @GetMapping("/math")
     public Collection<Question> getQuestions(){
         return questionService.getAll();
     }
 
-    @GetMapping("/java/remove")
+    @GetMapping("/math/remove")
     public Question removeQuestion(
             @RequestParam (name ="question")  String question,
             @RequestParam(name="answer") String answer){
         return questionService.remove(new Question(question, answer));
+    }
+
+    @GetMapping("/math/test")
+    public String helloWorld(){
+        return "HelloWorld";
     }
 }

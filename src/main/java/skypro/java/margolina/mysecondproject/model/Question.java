@@ -1,4 +1,4 @@
-package skypro.java.margolina.mysecondproject.repository;
+package skypro.java.margolina.mysecondproject.model;
 
 import java.util.Objects;
 
