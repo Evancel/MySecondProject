@@ -21,8 +21,10 @@ public class ExaminerServiceImpl implements ExaminerService {
     private final QuestionService mathQuestionService;
     private final RandomService rand;
 
-    public ExaminerServiceImpl(@Qualifier("javaQuestionService") QuestionService questionService1,
-                               @Qualifier ("mathQuestionService") QuestionService questionService2,
+    public ExaminerServiceImpl(@Qualifier("javaQuestionService")
+                               QuestionService questionService1,
+                               @Qualifier ("mathQuestionService")
+                               QuestionService questionService2,
                                RandomService randomService
 
     ){

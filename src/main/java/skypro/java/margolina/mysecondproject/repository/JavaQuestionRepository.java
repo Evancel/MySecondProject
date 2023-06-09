@@ -1,5 +1,6 @@
 package skypro.java.margolina.mysecondproject.repository;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Repository;
 import skypro.java.margolina.mysecondproject.exceptions.EmptyAnswerException;
 import skypro.java.margolina.mysecondproject.exceptions.EmptyQuestionException;
@@ -9,6 +10,7 @@ import skypro.java.margolina.mysecondproject.model.Question;
 import javax.annotation.PostConstruct;
 import java.util.*;
 @Repository
+
 public class JavaQuestionRepository implements QuestionRepository {
     private Set<Question> questions;
 

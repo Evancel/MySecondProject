@@ -31,11 +31,10 @@ public class ExaminerServiceImplTest {
     @InjectMocks
     private ExaminerServiceImpl examinerService;
 
-    @BeforeEach
-    public void setup(){
-        examinerService.init();
-    }
-
+//    @BeforeEach
+//    public void setup(){
+//        examinerService.init();
+//    }
     @Test
     public void checkGetQuestions(){
         int maxAmount=2;
