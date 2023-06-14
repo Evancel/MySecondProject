@@ -1,75 +1,53 @@
 package skypro.java.margolina.mysecondproject.service.implementations;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
-import skypro.java.margolina.mysecondproject.exceptions.EmptyAnswerException;
-import skypro.java.margolina.mysecondproject.exceptions.EmptyQuestionException;
-import skypro.java.margolina.mysecondproject.exceptions.QuestionNotFoundException;
-import skypro.java.margolina.mysecondproject.repository.Question;
+import skypro.java.margolina.mysecondproject.model.Question;
+import skypro.java.margolina.mysecondproject.repository.JavaQuestionRepository;
+import skypro.java.margolina.mysecondproject.repository.QuestionRepository;
 import skypro.java.margolina.mysecondproject.service.QuestionService;
 
 import java.util.*;
 
 @Service
-
+//@ConditionalOnProperty(value="setOfQuestions",havingValue = "javaSet",matchIfMissing = true)
 public class JavaQuestionService implements QuestionService {
 
-    Set<Question> questions;
-    private final int MAX_NUMBER = 10;
+    private final JavaQuestionRepository javaQuestionRepository;
+    private final RandomService random;
 
-    public JavaQuestionService() {
-        questions = new HashSet<>();
+    public JavaQuestionService(@Qualifier("javaQuestionRepository")
+                               JavaQuestionRepository javaRepository,
+                               RandomService randomService) {
+        this.javaQuestionRepository = javaRepository;
+        this.random = randomService;
     }
 
     @Override
     public Question add(String question, String answer) {
-        validateQuestion(question);
-        validateAnswer(answer);
-        Question q = new Question(question, answer);
-        questions.add(q);
-        return q;
+        return javaQuestionRepository.add(question, answer);
     }
 
     @Override
     public Question add(Question question) {
-
-        questions.add(question);
-        return question;
+        return javaQuestionRepository.add(question);
     }
 
     @Override
     public Question remove(Question question) {
-
-        if (!questions.contains(question)) {
-            throw new QuestionNotFoundException();
-        }
-
-        questions.remove(question);
-        return question;
+        return javaQuestionRepository.remove(question);
     }
 
     @Override
     public Collection<Question> getAll() {
-        return Collections.unmodifiableSet(questions);
+        return javaQuestionRepository.getAll();
     }
 
     @Override
     public Question getRandomQuestion() {
-        Random rand = new Random();
         //приводим Set к List, т.к. нужно обратиться к Question по index
-        List<Question> listOfQuestions = new ArrayList<>(questions);
-        return listOfQuestions.get(rand.nextInt(listOfQuestions.size()));
+        List<Question> listOfQuestions = new ArrayList<>(javaQuestionRepository.getAll());
+        return listOfQuestions.get(random.getRandomInt(listOfQuestions.size()));
     }
-
-    private void validateQuestion(String question) {
-        if (question == null || question.isBlank()) {
-            throw new EmptyQuestionException();
-        }
-    }
-
-    private void validateAnswer(String answer) {
-        if (answer == null || answer.isBlank()) {
-            throw new EmptyAnswerException();
-        }
-    }
-
 }

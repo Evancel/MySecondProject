@@ -1,6 +1,6 @@
 package skypro.java.margolina.mysecondproject.service;
 
-import skypro.java.margolina.mysecondproject.repository.Question;
+import skypro.java.margolina.mysecondproject.model.Question;
 
 import java.util.Collection;
 
