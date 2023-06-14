@@ -24,6 +24,16 @@ public class MathQuestionRepository implements QuestionRepository
     @PostConstruct
     public void init(){
         questions = new HashSet<>();
+        add("MathQuestion1","MathAnswer1");
+        add("MathQuestion2","MathAnswer2");
+        add("MathQuestion3","MathAnswer3");
+        add("MathQuestion4","MathAnswer4");
+        add("MathQuestion5","MathAnswer5");
+        add("MathQuestion6","MathAnswer6");
+        add("MathQuestion7","MathAnswer7");
+        add("MathQuestion8","MathAnswer8");
+        add("MathQuestion9","MathAnswer9");
+        add("MathQuestion10","MathAnswer10");
     }
 
 

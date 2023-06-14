@@ -15,9 +15,8 @@ import skypro.java.margolina.mysecondproject.repository.MathQuestionRepository;
 import skypro.java.margolina.mysecondproject.service.implementations.MathQuestionService;
 import skypro.java.margolina.mysecondproject.service.implementations.RandomService;
 
-import java.util.stream.Stream;
-
 import java.util.*;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -34,110 +33,33 @@ public class MathQuestionServiceTest {
     private MathQuestionService mathQuestionService;
 
     public void addQuestionsToOut(){
-        String q1 = "Вопрос1?";
-        String a1 = "Ответ1.";
-        Question curr1 = new Question(q1,a1);
-        mathQuestionService.add(curr1);
-
-        String q2 = "Вопрос2?";
-        String a2 = "Ответ2.";
-        Question curr2 = new Question(q2,a2);
-        mathQuestionService.add(curr2);
-
-        String q3 = "Вопрос3?";
-        String a3 = "Ответ3.";
-        Question curr3 = new Question(q3,a3);
-        mathQuestionService.add(curr3);
-
-        String q4 = "Вопрос4?";
-        String a4 = "Ответ4.";
-        Question curr4 = new Question(q4,a4);
-        mathQuestionService.add(curr4);
-
-        String q5 = "Вопрос5?";
-        String a5 = "Ответ5.";
-        Question curr5 = new Question(q5,a5);
-        mathQuestionService.add(curr5);
-
-        String q6 = "Вопрос6?";
-        String a6 = "Ответ6.";
-        Question curr6 = new Question(q6,a6);
-        mathQuestionService.add(curr6);
-
-        String q7 = "Вопрос7?";
-        String a7 = "Ответ7.";
-        Question curr7 = new Question(q7,a7);
-        mathQuestionService.add(curr7);
-
-        String q8 = "Вопрос8?";
-        String a8 = "Ответ8.";
-        Question curr8 = new Question(q8,a8);
-        mathQuestionService.add(curr8);
-
-        String q9 = "Вопрос9?";
-        String a9 = "Ответ9.";
-        Question curr9 = new Question(q9,a9);
-        mathQuestionService.add(curr9);
-
-        String q10 = "Вопрос10?";
-        String a10 = "Ответ10.";
-        Question curr10 = new Question(q10,a10);
-        mathQuestionService.add(curr10);
+        mathQuestionService.add(new Question("Question1?", "Answer1."));
+        mathQuestionService.add(new Question("Question2?", "Answer2."));
+        mathQuestionService.add(new Question("Question3?", "Answer3."));
+        mathQuestionService.add(new Question("Question4?", "Answer4."));
+        mathQuestionService.add(new Question("Question5?", "Answer5."));
+        mathQuestionService.add(new Question("Question6?", "Answer6."));
+        mathQuestionService.add(new Question("Question7?", "Answer7."));
+        mathQuestionService.add(new Question("Question8?", "Answer8."));
+        mathQuestionService.add(new Question("Question9?", "Answer9."));
+        mathQuestionService.add(new Question("Question10?", "Answer10."));
     }
 
     public Collection<Question> addQuestionsToExpected(){
         Set<Question> questionSet = new HashSet<>();
-        String q1 = "Вопрос1?";
-        String a1 = "Ответ1.";
-        Question curr1 = new Question(q1,a1);
-        questionSet.add(curr1);
 
-        String q2 = "Вопрос2?";
-        String a2 = "Ответ2.";
-        Question curr2 = new Question(q2,a2);
-        questionSet.add(curr2);
+        questionSet.add(new Question("Question1?", "Answer1."));
+        questionSet.add(new Question("Question2?", "Answer2."));
+        questionSet.add(new Question("Question3?", "Answer3."));
+        questionSet.add(new Question("Question4?", "Answer4."));
+        questionSet.add(new Question("Question5?", "Answer5."));
+        questionSet.add(new Question("Question6?", "Answer6."));
+        questionSet.add(new Question("Question7?", "Answer7."));
+        questionSet.add(new Question("Question8?", "Answer8."));
+        questionSet.add(new Question("Question9?", "Answer9."));
+        questionSet.add(new Question("Question10?", "Answer10."));
 
-        String q3 = "Вопрос3?";
-        String a3 = "Ответ3.";
-        Question curr3 = new Question(q3,a3);
-        questionSet.add(curr3);
-
-        String q4 = "Вопрос4?";
-        String a4 = "Ответ4.";
-        Question curr4 = new Question(q4,a4);
-        questionSet.add(curr4);
-
-        String q5 = "Вопрос5?";
-        String a5 = "Ответ5.";
-        Question curr5 = new Question(q5,a5);
-        questionSet.add(curr5);
-
-        String q6 = "Вопрос6?";
-        String a6 = "Ответ6.";
-        Question curr6 = new Question(q6,a6);
-        questionSet.add(curr6);
-
-        String q7 = "Вопрос7?";
-        String a7 = "Ответ7.";
-        Question curr7 = new Question(q7,a7);
-        questionSet.add(curr7);
-
-        String q8 = "Вопрос8?";
-        String a8 = "Ответ8.";
-        Question curr8 = new Question(q8,a8);
-        questionSet.add(curr8);
-
-        String q9 = "Вопрос9?";
-        String a9 = "Ответ9.";
-        Question curr9 = new Question(q9,a9);
-        questionSet.add(curr9);
-
-        String q10 = "Вопрос10?";
-        String a10 = "Ответ10.";
-        Question curr10 = new Question(q10,a10);
-        questionSet.add(curr10);
-
-        return Collections.unmodifiableSet(questionSet);
+        return questionSet;
     }
 
     @Test

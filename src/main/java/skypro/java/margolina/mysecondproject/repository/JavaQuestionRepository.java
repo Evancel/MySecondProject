@@ -20,6 +20,16 @@ public class JavaQuestionRepository implements QuestionRepository {
     @PostConstruct
     public void init(){
         questions = new HashSet<>();
+        add("JavaQuestion1","JavaAnswer1");
+        add("JavaQuestion2","JavaAnswer2");
+        add("JavaQuestion3","JavaAnswer3");
+        add("JavaQuestion4","JavaAnswer4");
+        add("JavaQuestion5","JavaAnswer5");
+        add("JavaQuestion6","JavaAnswer6");
+        add("JavaQuestion7","JavaAnswer7");
+        add("JavaQuestion8","JavaAnswer8");
+        add("JavaQuestion9","JavaAnswer9");
+        add("JavaQuestion10","JavaAnswer10");
     }
 
     @Override

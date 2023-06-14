@@ -53,7 +53,6 @@ public class JavaQuestionRepositoryTest {
 
         javaQuestionRepository.add(q);
         javaQuestionRepository.add("Question2?","Answer2.");
-        javaQuestionRepository.add("Question3?","Answer3.");
 
         assertEquals(q,javaQuestionRepository.remove(q));
     }
@@ -64,20 +63,20 @@ public class JavaQuestionRepositoryTest {
         String answer1 = "Answer1.";
         Question q1 = new Question(question1,answer1);
 
-        String question2 = "Question1?";
-        String answer2 = "Answer1.";
+        String question2 = "Question2?";
+        String answer2 = "Answer2.";
         Question q2 = new Question(question2,answer2);
 
-        String question3 = "Question1?";
-        String answer3 = "Answer1.";
+        String question3 = "Question3?";
+        String answer3 = "Answer3.";
         Question q3 = new Question(question3,answer3);
 
-        String question4 = "Question1?";
-        String answer4 = "Answer1.";
+        String question4 = "Question4?";
+        String answer4 = "Answer4.";
         Question q4 = new Question(question4,answer4);
 
-        String question5 = "Question1?";
-        String answer5 = "Answer1.";
+        String question5 = "Question5?";
+        String answer5 = "Answer5.";
         Question q5 = new Question(question5,answer5);
 
         javaQuestionRepository.add(q1);

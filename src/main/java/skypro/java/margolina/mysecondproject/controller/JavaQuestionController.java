@@ -14,15 +14,16 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/{subject}")
 public class JavaQuestionController {
+
     private final QuestionService questionService;
 
-    public JavaQuestionController(@Qualifier ("javaQuestionService")
-                                  QuestionService questionService){
+    public JavaQuestionController(@Qualifier ("javaQuestionService") QuestionService questionService
+                                ){
         this.questionService = questionService;
     }
 
     @GetMapping("/add")
-    public Question addQuestion(//@PathVariable
+    public Question addQuestion(
             @RequestParam (name ="question")  String question,
             @RequestParam(name="answer") String answer){
         return questionService.add(question, answer);

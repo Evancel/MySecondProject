@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import skypro.java.margolina.mysecondproject.exceptions.RepositoryNotExistsException;
 import skypro.java.margolina.mysecondproject.model.Question;
 import skypro.java.margolina.mysecondproject.repository.MathQuestionRepository;
 import skypro.java.margolina.mysecondproject.repository.QuestionRepository;
@@ -16,14 +17,15 @@ import java.util.*;
 
 @Service
 //@Scope(value= ConfigurablePropertyAccessor)
-//@ConditionalOnProperty(value="setOfQuestions",havingValue = "mathSet",matchIfMissing = false)
+//@ConditionalOnMissingBean(MathQuestionRepository.class)
 public class MathQuestionService implements QuestionService {
 
     private final MathQuestionRepository mathQuestionRepository;
     private final RandomService random;
 
-    public MathQuestionService(@Qualifier("mathQuestionRepository")
-                               MathQuestionRepository mathRepository,
+    public MathQuestionService(
+  //          @Qualifier("mathQuestionRepository")
+            MathQuestionRepository mathRepository,
                                RandomService randomService){
 
         this.mathQuestionRepository = mathRepository;

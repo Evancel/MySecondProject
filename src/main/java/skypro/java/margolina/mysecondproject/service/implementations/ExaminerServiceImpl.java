@@ -36,21 +36,27 @@ public class ExaminerServiceImpl implements ExaminerService {
     @Override
     public Collection<Question> getQuestions(int amount) {
         validateJavaQuestionCollection();
-
         if((javaQuestionService.getAll().size() + mathQuestionService.getAll().size()) < amount){
             throw new NotEnoughQuestionsException();
         }
 
-        Collection<Question> examQuestions = new HashSet<>();
+        //проверяем, что вопросов и по Java, и по математике хватает для выбора
+        int javaAmount = 0;
 
-        int javaAmount = rand.getRandomInt(amount);
+        do{
+            javaAmount = rand.getRandomInt(amount);
+        }while(javaQuestionService.getAll().size()<javaAmount
+                || mathQuestionService.getAll().size()<(amount - javaAmount));
 
-        while(examQuestions.size()<amount){
-            while(examQuestions.size()<javaAmount){
-                examQuestions.add(javaQuestionService.getRandomQuestion());
-            }
+        Set<Question> examQuestions = new HashSet<>();
+
+        do{
+            examQuestions.add(javaQuestionService.getRandomQuestion());
+        }while(examQuestions.size()<javaAmount);
+
+        do{
             examQuestions.add(mathQuestionService.getRandomQuestion());
-        }
+        }while(examQuestions.size()<amount);
 
         return examQuestions.stream().collect(Collectors.toUnmodifiableSet());
     }

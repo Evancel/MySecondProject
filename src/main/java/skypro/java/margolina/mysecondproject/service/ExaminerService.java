@@ -6,5 +6,4 @@ import java.util.Collection;
 
 public interface ExaminerService {
     public Collection<Question> getQuestions(int amount);
- //   public Collection<Question> getQuestions1(int amount);
 }
